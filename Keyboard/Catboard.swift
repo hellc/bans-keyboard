@@ -1,12 +1,8 @@
-//
-//  Catboard.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 9/24/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 /*
 This is the demo keyboard. If you're implementing your own keyboard, simply follow the example here and then
@@ -145,3 +141,5 @@ func randomCat() -> String {
     
     return String(character)
 }
+
+//-------------------------------------------//

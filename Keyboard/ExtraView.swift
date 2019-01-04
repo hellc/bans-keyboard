@@ -1,12 +1,8 @@
-//
-//  ExtraView.swift
-//  TastyImitationKeyboard
-//
-//  Created by Alexei Baboulevitch on 10/5/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 class ExtraView: UIView {
     
@@ -30,3 +26,5 @@ class ExtraView: UIView {
         super.init(coder: aDecoder)
     }
 }
+
+//-------------------------------------------//

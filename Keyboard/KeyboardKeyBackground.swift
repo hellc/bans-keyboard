@@ -1,12 +1,8 @@
-//
-//  KeyboardKeyBackground.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 7/19/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 // This class does not actually draw its contents; rather, it generates bezier curves for others to use.
 // (You can still move it around, resize it, and add subviews to it. It just won't display the curve assigned to it.)
@@ -283,3 +279,5 @@ class KeyboardKeyBackground: UIView, Connectable {
         self.attached = direction
     }
 }
+
+//-------------------------------------------//

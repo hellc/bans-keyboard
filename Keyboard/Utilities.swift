@@ -1,13 +1,9 @@
-//
-//  Utilities.swift
-//  TastyImitationKeyboard
-//
-//  Created by Alexei Baboulevitch on 10/22/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import Foundation
 import UIKit
+
+//-------------------------------------------//
 
 // from https://gist.github.com/berkus/8a9e104f8aac5d025eb5
 //func memoize<T: Hashable, U>( body: ( (T)->U, T ) -> U ) -> (T) -> U {
@@ -90,3 +86,5 @@ var profile: ((_ id: String) -> Double?) = {
         return counterForName[id]
     }
 }()
+
+//-------------------------------------------//

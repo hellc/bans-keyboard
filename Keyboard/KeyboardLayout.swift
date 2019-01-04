@@ -1,12 +1,8 @@
-//
-//  KeyboardLayout.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 7/25/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 // TODO: need to rename, consolidate, and define terms
 class LayoutConstants: NSObject {
@@ -610,7 +606,7 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
                 }
             }
             
-            let id = "p\(p)r\(r)k\(k)"
+            let id = "p\(String(describing: p))r\(String(describing: r))k\(String(describing: k))"
             if let key = self.nonPooledMap[id] {
                 return key
             }
@@ -1049,3 +1045,5 @@ class KeyboardLayout: NSObject, KeyboardKeyProtocol {
     func willHidePopup(for key: KeyboardKey) {
     }
 }
+
+//-------------------------------------------//

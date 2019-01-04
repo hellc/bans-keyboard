@@ -1,10 +1,4 @@
-//
-//  Direction.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 7/19/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 enum Direction: Int, CustomStringConvertible {
     case left = 0
@@ -77,3 +71,5 @@ enum Direction: Int, CustomStringConvertible {
         }
     }
 }
+
+//-------------------------------------------//

@@ -1,12 +1,8 @@
-//
-//  ImageKey.swift
-//  TastyImitationKeyboard
-//
-//  Created by Alexei Baboulevitch on 11/2/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 class ImageKey: KeyboardKey {
     
@@ -62,3 +58,5 @@ class ImageKey: KeyboardKey {
         }
     }
 }
+
+//-------------------------------------------//

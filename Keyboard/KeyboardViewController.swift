@@ -1,13 +1,9 @@
-//
-//  KeyboardViewController.swift
-//  Keyboard
-//
-//  Created by Alexei Baboulevitch on 6/9/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
 import AudioToolbox
+
+//-------------------------------------------//
 
 let metrics: [String:Double] = [
     "topBanner": 30
@@ -868,3 +864,5 @@ class KeyboardViewController: UIInputViewController {
         return settingsView
     }
 }
+
+//-------------------------------------------//

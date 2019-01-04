@@ -1,12 +1,8 @@
-//
-//  Shapes.swift
-//  TastyImitationKeyboard
-//
-//  Created by Alexei Baboulevitch on 10/5/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 // TODO: these shapes were traced and as such are erratic and inaccurate; should redo as SVG or PDF
 
@@ -353,3 +349,5 @@ func drawGlobe(_ bounds: CGRect, color: UIColor) {
     
     endCenter()
 }
+
+//-------------------------------------------//

@@ -1,12 +1,8 @@
-//
-//  ForwardingView.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 7/19/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import UIKit
+
+//-------------------------------------------//
 
 class ForwardingView: UIView {
     
@@ -218,3 +214,5 @@ class ForwardingView: UIView {
         }
     }
 }
+
+//-------------------------------------------//

@@ -1,12 +1,8 @@
-//
-//  KeyboardModel.swift
-//  TransliteratingKeyboard
-//
-//  Created by Alexei Baboulevitch on 7/10/14.
-//  Copyright (c) 2014 Alexei Baboulevitch ("Archagon"). All rights reserved.
-//
+//-------------------------------------------//
 
 import Foundation
+
+//-------------------------------------------//
 
 var counter = 0
 
@@ -166,3 +162,5 @@ class Key: Hashable {
 func ==(lhs: Key, rhs: Key) -> Bool {
     return lhs.hashValue == rhs.hashValue
 }
+
+//-------------------------------------------//
