@@ -6,7 +6,7 @@ import AudioToolbox
 //-------------------------------------------//
 
 let metrics: [String:Double] = [
-    "topBanner": 30
+    "topBanner": 44
 ]
 func metric(_ name: String) -> CGFloat { return CGFloat(metrics[name]!) }
 
