@@ -99,11 +99,11 @@ class Catboard: KeyboardViewController {
         return CatboardBanner(globalColors: type(of: self).globalColors, darkMode: false, solidColorMode: self.solidColorMode())
     }
     
-    func takeScreenshotDelay() {
+    @objc func takeScreenshotDelay() {
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(Catboard.takeScreenshot), userInfo: nil, repeats: false)
     }
     
-    func takeScreenshot() {
+    @objc func takeScreenshot() {
         if !self.view.bounds.isEmpty {
             UIDevice.current.beginGeneratingDeviceOrientationNotifications()
             
@@ -125,7 +125,7 @@ class Catboard: KeyboardViewController {
             let name = (self.interfaceOrientation.isPortrait ? "Screenshot-Portrait" : "Screenshot-Landscape")
             let imagePath = "/Users/archagon/Documents/Programming/OSX/RussianPhoneticKeyboard/External/tasty-imitation-keyboard/\(name).png"
             
-            if let pngRep = UIImagePNGRepresentation(capturedImage!) {
+            if let pngRep = capturedImage!.pngData() {
                 try? pngRep.write(to: URL(fileURLWithPath: imagePath), options: [.atomic])
             }
             
