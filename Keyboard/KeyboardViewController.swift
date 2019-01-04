@@ -206,7 +206,7 @@ class KeyboardViewController: UIInputViewController {
         
         self.setupLayout()
         
-        let orientationSavvyBounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.height(forOrientation: self.interfaceOrientation, withTopBanner: false))
+        let orientationSavvyBounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.height(forOrientation: self.preferredInterfaceOrientationForPresentation, withTopBanner: false))
         
         if (lastLayoutBounds != nil && lastLayoutBounds == orientationSavvyBounds) {
             // do nothing
@@ -239,7 +239,7 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.bannerView?.isHidden = false
-        self.keyboardHeight = self.height(forOrientation: self.interfaceOrientation, withTopBanner: true)
+        self.keyboardHeight = self.height(forOrientation: self.preferredInterfaceOrientationForPresentation, withTopBanner: true)
     }
     
     override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
@@ -354,9 +354,11 @@ class KeyboardViewController: UIInputViewController {
                                 keyView.addTarget(self,
                                                   action: #selector(KeyboardViewController.showPopup(_:)),
                                                   for: [.touchDown, .touchDragInside, .touchDragEnter])
+                                
                                 keyView.addTarget(keyView,
                                                   action: #selector(KeyboardKey.hidePopup),
                                                   for: [.touchDragExit, .touchCancel])
+                                
                                 keyView.addTarget(self,
                                                   action: #selector(KeyboardViewController.hidePopupDelay(_:)),
                                                   for: [.touchUpInside, .touchUpOutside, .touchDragOutside])
@@ -514,7 +516,7 @@ class KeyboardViewController: UIInputViewController {
             let charactersAreInCorrectState = { () -> Bool in
                 let previousContext = self.textDocumentProxy.documentContextBeforeInput
                 
-                if previousContext == nil || (previousContext!).characters.count < 3 {
+                if previousContext == nil || (previousContext!).count < 3 {
                     return false
                 }
                 
@@ -754,7 +756,7 @@ class KeyboardViewController: UIInputViewController {
     
     func stringIsWhitespace(_ string: String?) -> Bool {
         if string != nil {
-            for char in (string!).characters {
+            for char in (string!) {
                 if !characterIsWhitespace(char) {
                     return false
                 }
@@ -778,7 +780,7 @@ class KeyboardViewController: UIInputViewController {
                 return false
             case .words:
                 if let beforeContext = documentProxy.documentContextBeforeInput {
-                    let previousCharacter = beforeContext[beforeContext.characters.index(before: beforeContext.endIndex)]
+                    let previousCharacter = beforeContext[beforeContext.index(before: beforeContext.endIndex)]
                     return self.characterIsWhitespace(previousCharacter)
                 }
                 else {
@@ -787,7 +789,7 @@ class KeyboardViewController: UIInputViewController {
             
             case .sentences:
                 if let beforeContext = documentProxy.documentContextBeforeInput {
-                    let offset = min(3, beforeContext.characters.count)
+                    let offset = min(3, beforeContext.count)
                     var index = beforeContext.endIndex
                     
                     for i in 0 ..< offset {
