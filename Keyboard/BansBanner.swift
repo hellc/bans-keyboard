@@ -4,11 +4,6 @@ import UIKit
 
 //-------------------------------------------//
 
-/*
- This is the demo banner. The banner is needed so that the top row popups have somewhere to go. Might as well fill it
- with something (or leave it blank if you like.)
- */
-
 class BansBanner: ExtraView {
     
     let offset = CGFloat(10.0)
@@ -43,44 +38,51 @@ class BansBanner: ExtraView {
     func updateAppearance() {
         var width = CGFloat(0.0)
         for subview in self.stackView.subviews {
-            width += CGFloat(subview.frame.size.width) + offset
+            width += CGFloat(subview.frame.size.width) + self.offset
         }
         
-        self.stackView.frame = CGRect(x: offset / 2, y: offset / 2, width: width, height: self.frame.size.height - offset)
-        self.scrollView.contentSize = CGSize(width: width + offset, height: self.frame.size.height)
+        self.stackView.frame = CGRect(x: self.offset / 2,
+                                      y: self.offset / 2,
+                                      width: width,
+                                      height: self.frame.size.height - self.offset)
+        self.scrollView.contentSize = CGSize(width: width + self.offset, height: self.frame.size.height)
     }
     
     func clear() {
         for subview in self.stackView.subviews {
             subview.removeFromSuperview()
         }
+        
         self.updateAppearance()
     }
     
     var completionBlock: ((_ selectedData : BansData?) -> Void)?
     func populate(with data: NSArray, completion: ((_ selectedData : BansData?) -> Void)?) {
-        self.clear()
-        
-        if (completion != nil) {
-            completionBlock = completion
-        }
-        
-        for item in data {
-            let bansDataItem = item as! BansData
+        DispatchQueue.main.async {
+            self.clear()
             
-            let button = self.button(for: bansDataItem)
-            
-            button.addAction {
-                self.clear()
-                
-                if (self.completionBlock != nil) {
-                    self.completionBlock!(bansDataItem)
-                }
+            if (completion != nil) {
+                self.completionBlock = completion
             }
             
-            self.stackView.addArrangedSubview(button)
+            for item in data {
+                let bansDataItem = item as! BansData
+                
+                let button = self.button(for: bansDataItem)
+                
+                button.addAction {
+                    self.clear()
+                    
+                    if (self.completionBlock != nil) {
+                        self.completionBlock!(bansDataItem)
+                    }
+                }
+                
+                self.stackView.addArrangedSubview(button)
+            }
+            
+            self.updateAppearance()
         }
-        self.updateAppearance()
     }
     
     func button(for bansData: BansData) -> UIButton {

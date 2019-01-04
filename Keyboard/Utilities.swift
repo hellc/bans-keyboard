@@ -96,9 +96,7 @@ class ClosureSleeve {
     }
     
     @objc func invoke() {
-        DispatchQueue.main.async {
-            self.closure()
-        }
+        self.closure()
     }
 }
 
