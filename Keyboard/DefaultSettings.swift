@@ -29,26 +29,22 @@ class DefaultSettings: ExtraView, UITableViewDataSource, UITableViewDelegate {
     var settingsList: [(String, [String])] {
         get {
             return [
-                ("General Settings", [kAutoCapitalization, kPeriodShortcut, kKeyboardClicks]),
-                ("Extra Settings", [kSmallLowercase])
+                ("General Settings", [kKeyboardClicks])
+//                ("Extra Settings", [])
             ]
         }
     }
     var settingsNames: [String:String] {
         get {
             return [
-                kAutoCapitalization: "Auto-Capitalization",
-                kPeriodShortcut:  "“.” Shortcut",
-                kKeyboardClicks: "Keyboard Clicks",
-                kSmallLowercase: "Allow Lowercase Key Caps"
+                kKeyboardClicks: "Keyboard Clicks"
             ]
         }
     }
     var settingsNotes: [String: String] {
         get {
             return [
-                kKeyboardClicks: "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system.",
-                kSmallLowercase: "Changes your key caps to lowercase when Shift is off, making it easier to tell what mode you are in."
+                kKeyboardClicks: "Please note that keyboard clicks will work only if “Allow Full Access” is enabled in the keyboard settings. Unfortunately, this is a limitation of the operating system."
             ]
         }
     }

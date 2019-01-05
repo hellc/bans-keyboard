@@ -27,6 +27,14 @@ class HostingAppViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @IBAction func openAliasButtonPressed(_ sender: Any) {
+        UIApplication.shared.openURL(URL.init(string: "https://openalias.org/")!)
+    }
+    
+    @IBAction func bansButtonPressed(_ sender: Any) {
+        UIApplication.shared.openURL(URL.init(string: "https://github.com/hellc/bans-keyboard")!)
+    }
 }
 
 //-------------------------------------------//

@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUG-rU-5cI">
-                                <rect key="frame" x="0.0" y="114" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="154" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Example: kxp.one" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B50-h0-rvR">
                                         <rect key="frame" x="14" y="16.666666666666657" width="347" height="17"/>
@@ -39,20 +39,41 @@
                                     <constraint firstItem="B50-h0-rvR" firstAttribute="centerY" secondItem="aUG-rU-5cI" secondAttribute="centerY" id="zfq-IK-V5w"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To try type BANS supported domain name in the text field using BANS-keyboard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHD-0Q-krs">
-                                <rect key="frame" x="14" y="178" width="347" height="28.666666666666657"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHD-0Q-krs">
+                                <rect key="frame" x="14" y="218" width="347" height="84"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="To try type OpenAlias supported domain name in the text field using BANS-keyboard">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="12" name="SFProText-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="12" name="SFProText-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" Note: You need 'Full access&quot; to make network requests enabled. Go to system keyboards settings and toggle full access mode ON">
+                                        <attributes>
+                                            <color key="NSColor" white="0.19411269375975704" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="12" name="SFProText-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-jP-NDQ">
-                                <rect key="frame" x="87.666666666666686" y="64" width="200" height="50"/>
+                                <rect key="frame" x="87.666666666666686" y="64" width="200" height="70"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="kgv-Tl-N3n">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_bans" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-q3-MX3">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
                                 </subviews>
@@ -62,7 +83,7 @@
                                     <constraint firstItem="kgv-Tl-N3n" firstAttribute="centerX" secondItem="Y7d-q3-MX3" secondAttribute="centerX" id="CeV-Dq-aEq"/>
                                     <constraint firstItem="Y7d-q3-MX3" firstAttribute="leading" secondItem="Ylq-jP-NDQ" secondAttribute="leading" id="Fvr-If-hzP"/>
                                     <constraint firstItem="kgv-Tl-N3n" firstAttribute="width" secondItem="Y7d-q3-MX3" secondAttribute="width" id="IcZ-Xl-AV1"/>
-                                    <constraint firstAttribute="height" constant="50" id="aro-va-Hep"/>
+                                    <constraint firstAttribute="height" constant="70" id="aro-va-Hep"/>
                                     <constraint firstAttribute="bottom" secondItem="Y7d-q3-MX3" secondAttribute="bottom" id="b4t-Sk-jjW"/>
                                     <constraint firstAttribute="trailing" secondItem="Y7d-q3-MX3" secondAttribute="trailing" id="gYU-sJ-s4X"/>
                                     <constraint firstItem="Y7d-q3-MX3" firstAttribute="top" secondItem="Ylq-jP-NDQ" secondAttribute="top" id="r4x-g7-MaX"/>
@@ -73,6 +94,30 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App based on archagon/tasty-imitation-keyboard" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTm-l3-WCC">
+                                <rect key="frame" x="30" y="746" width="315" height="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN8-Em-hDP">
+                                <rect key="frame" x="212.66666666666666" y="708" width="40" height="30"/>
+                                <state key="normal" title="BANS">
+                                    <color key="titleColor" white="0.19411269380000001" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bansButtonPressed:" destination="nAo-DR-8Pl" eventType="touchUpInside" id="7Ve-TL-Eue"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wad-Ks-bSk">
+                                <rect key="frame" x="122.66666666666669" y="708" width="70" height="30"/>
+                                <state key="normal" title="OpenAlias">
+                                    <color key="titleColor" white="0.19411269380000001" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="openAliasButtonPressed:" destination="nAo-DR-8Pl" eventType="touchUpInside" id="A8E-gS-YHj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.94995231807511726" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -80,10 +125,17 @@
                             <constraint firstItem="BHD-0Q-krs" firstAttribute="leading" secondItem="aBi-zl-Xx9" secondAttribute="leading" constant="14" id="3aE-Sy-vTF"/>
                             <constraint firstItem="aUG-rU-5cI" firstAttribute="leading" secondItem="aBi-zl-Xx9" secondAttribute="leading" id="EUs-OY-qcm"/>
                             <constraint firstItem="Ylq-jP-NDQ" firstAttribute="centerX" secondItem="aBi-zl-Xx9" secondAttribute="centerX" id="J4j-iT-rQq"/>
-                            <constraint firstItem="aUG-rU-5cI" firstAttribute="top" secondItem="Bpu-v8-xYb" secondAttribute="bottom" constant="70" id="KG7-E3-sRW"/>
+                            <constraint firstItem="aUG-rU-5cI" firstAttribute="top" secondItem="Bpu-v8-xYb" secondAttribute="bottom" constant="110" id="KG7-E3-sRW"/>
+                            <constraint firstItem="wad-Ks-bSk" firstAttribute="centerX" secondItem="aBi-zl-Xx9" secondAttribute="centerX" constant="-30" id="KbT-8g-tv3"/>
                             <constraint firstItem="BHD-0Q-krs" firstAttribute="top" secondItem="aUG-rU-5cI" secondAttribute="bottom" constant="14" id="Vwc-4V-e2f"/>
+                            <constraint firstItem="vTm-l3-WCC" firstAttribute="leading" secondItem="aBi-zl-Xx9" secondAttribute="leadingMargin" constant="14" id="Z5G-Dg-L7t"/>
                             <constraint firstItem="Ylq-jP-NDQ" firstAttribute="top" secondItem="Bpu-v8-xYb" secondAttribute="bottom" constant="20" id="bxA-0c-PGe"/>
                             <constraint firstAttribute="trailing" secondItem="BHD-0Q-krs" secondAttribute="trailing" constant="14" id="f1A-8M-cLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vTm-l3-WCC" secondAttribute="trailing" constant="14" id="fY4-nd-0pm"/>
+                            <constraint firstItem="P06-La-EKF" firstAttribute="top" secondItem="vTm-l3-WCC" secondAttribute="bottom" constant="20" id="m59-wO-P2n"/>
+                            <constraint firstItem="vTm-l3-WCC" firstAttribute="top" secondItem="UN8-Em-hDP" secondAttribute="bottom" constant="8" id="nm8-i5-MI4"/>
+                            <constraint firstItem="vTm-l3-WCC" firstAttribute="top" secondItem="wad-Ks-bSk" secondAttribute="bottom" constant="8" id="tfj-aQ-dnM"/>
+                            <constraint firstItem="UN8-Em-hDP" firstAttribute="leading" secondItem="wad-Ks-bSk" secondAttribute="trailing" constant="20" id="ynH-Zc-Wyx"/>
                         </constraints>
                     </view>
                     <connections>

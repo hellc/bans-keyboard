@@ -35,9 +35,9 @@
 		4EF16F9819D255030076AFCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF16F9519D255030076AFCB /* ViewController.swift */; };
 		4EF16F9B19D2550D0076AFCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */; };
 		4EF16F9F19D2552E0076AFCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EF16F9D19D2552E0076AFCB /* Main.storyboard */; };
-		CA23248D21DFBBE9006E7B98 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA23248B21DFBBE9006E7B98 /* Launch Screen.storyboard */; };
 		CA23249121DFCFDC006E7B98 /* BansModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA23249021DFCFDC006E7B98 /* BansModel.swift */; };
 		CA23249321DFFE22006E7B98 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA23249221DFFE22006E7B98 /* SwiftyJSON.swift */; };
+		CA23249621E02CFA006E7B98 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA23249421E02CFA006E7B98 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,9 +127,9 @@
 		4EF16F9519D255030076AFCB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EF16F9E19D2552E0076AFCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		CA23248C21DFBBE9006E7B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		CA23249021DFCFDC006E7B98 /* BansModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BansModel.swift; path = Bans/BansModel.swift; sourceTree = "<group>"; };
 		CA23249221DFFE22006E7B98 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Utility/SwiftyJSON.swift; sourceTree = "<group>"; };
+		CA23249521E02CFA006E7B98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +231,7 @@
 				4EF16F9A19D2550D0076AFCB /* AppDelegate.swift */,
 				4EF16F9519D255030076AFCB /* ViewController.swift */,
 				4EF16F9D19D2552E0076AFCB /* Main.storyboard */,
-				CA23248B21DFBBE9006E7B98 /* Launch Screen.storyboard */,
+				CA23249421E02CFA006E7B98 /* LaunchScreen.xib */,
 				4EF16F9319D255030076AFCB /* Images.xcassets */,
 				4E807D9619461D9000D875D1 /* Supporting Files */,
 			);
@@ -434,9 +434,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA23249621E02CFA006E7B98 /* LaunchScreen.xib in Resources */,
 				4EF16F9619D255030076AFCB /* Images.xcassets in Resources */,
 				4EF16F9F19D2552E0076AFCB /* Main.storyboard in Resources */,
-				CA23248D21DFBBE9006E7B98 /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,12 +536,12 @@
 			path = ../HostingApp/Base.lproj;
 			sourceTree = "<group>";
 		};
-		CA23248B21DFBBE9006E7B98 /* Launch Screen.storyboard */ = {
+		CA23249421E02CFA006E7B98 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CA23248C21DFBBE9006E7B98 /* Base */,
+				CA23249521E02CFA006E7B98 /* Base */,
 			);
-			name = "Launch Screen.storyboard";
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

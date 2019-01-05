@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zGd-Wh-Rnc">
+                    <rect key="frame" x="60" y="179" width="200" height="70"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ZbE-sm-3QQ">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_bans" translatesAutoresizingMaskIntoConstraints="NO" id="5C0-eE-aEX">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="70"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="5C0-eE-aEX" firstAttribute="leading" secondItem="zGd-Wh-Rnc" secondAttribute="leading" id="03P-zJ-G7O"/>
+                        <constraint firstItem="ZbE-sm-3QQ" firstAttribute="width" secondItem="5C0-eE-aEX" secondAttribute="width" id="94f-fi-Ggy"/>
+                        <constraint firstItem="5C0-eE-aEX" firstAttribute="top" secondItem="zGd-Wh-Rnc" secondAttribute="top" id="DIC-C4-GZm"/>
+                        <constraint firstItem="ZbE-sm-3QQ" firstAttribute="centerX" secondItem="5C0-eE-aEX" secondAttribute="centerX" id="E6q-Q9-Rdb"/>
+                        <constraint firstAttribute="trailing" secondItem="5C0-eE-aEX" secondAttribute="trailing" id="Osd-Zs-N7G"/>
+                        <constraint firstAttribute="bottom" secondItem="5C0-eE-aEX" secondAttribute="bottom" id="Pi1-h8-r7u"/>
+                        <constraint firstItem="ZbE-sm-3QQ" firstAttribute="height" secondItem="5C0-eE-aEX" secondAttribute="height" id="Tsb-MV-LFv"/>
+                        <constraint firstAttribute="height" constant="70" id="ZFh-L7-dZW"/>
+                        <constraint firstAttribute="width" constant="200" id="aie-Sf-wnn"/>
+                        <constraint firstItem="ZbE-sm-3QQ" firstAttribute="centerY" secondItem="5C0-eE-aEX" secondAttribute="centerY" id="j5J-fI-mat"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.94995231810000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="zGd-Wh-Rnc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RZu-Hk-NeW"/>
+                <constraint firstItem="zGd-Wh-Rnc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-70" id="qDP-U8-oEp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="489.60000610351562" height="77"/>
+        <image name="logo_bans" width="533" height="104"/>
+    </resources>
+</document>

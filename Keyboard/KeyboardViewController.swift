@@ -10,11 +10,7 @@ let metrics: [String:Double] = [
 ]
 func metric(_ name: String) -> CGFloat { return CGFloat(metrics[name]!) }
 
-// TODO: move this somewhere else and localize
-let kAutoCapitalization = "kAutoCapitalization"
-let kPeriodShortcut = "kPeriodShortcut"
 let kKeyboardClicks = "kKeyboardClicks"
-let kSmallLowercase = "kSmallLowercase"
 
 class KeyboardViewController: UIInputViewController {
     
@@ -91,10 +87,7 @@ class KeyboardViewController: UIInputViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         UserDefaults.standard.register(defaults: [
-            kAutoCapitalization: true,
-            kPeriodShortcut: true,
-            kKeyboardClicks: false,
-            kSmallLowercase: false
+            kKeyboardClicks: false
         ])
         
         self.keyboard = defaultKeyboard()
@@ -213,10 +206,12 @@ class KeyboardViewController: UIInputViewController {
         }
         else {
             let uppercase = self.shiftState.uppercase()
-            let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
             
             self.forwardingView.frame = orientationSavvyBounds
-            self.layout?.layoutKeys(self.currentMode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
+            self.layout?.layoutKeys(self.currentMode,
+                                    uppercase: uppercase,
+                                    characterUppercase: true,
+                                    shiftState: self.shiftState)
             self.lastLayoutBounds = orientationSavvyBounds
             self.setupKeys()
         }
@@ -491,70 +486,9 @@ class KeyboardViewController: UIInputViewController {
             else if model.type == Key.KeyType.character {
                 self.currentMode = 0
             }
-            
-            // auto period on double space
-            // TODO: timeout
-            
-            self.handleAutoPeriod(model)
-            // TODO: reset context
         }
         
         self.updateCapsIfNeeded()
-    }
-    
-    func handleAutoPeriod(_ key: Key) {
-        if !UserDefaults.standard.bool(forKey: kPeriodShortcut) {
-            return
-        }
-        
-        if self.autoPeriodState == .firstSpace {
-            if key.type != Key.KeyType.space {
-                self.autoPeriodState = .noSpace
-                return
-            }
-            
-            let charactersAreInCorrectState = { () -> Bool in
-                let previousContext = self.textDocumentProxy.documentContextBeforeInput
-                
-                if previousContext == nil || (previousContext!).count < 3 {
-                    return false
-                }
-                
-                var index = previousContext!.endIndex
-                
-                index = previousContext!.index(before: index)
-                if previousContext![index] != " " {
-                    return false
-                }
-                
-                index = previousContext!.index(before: index)
-                if previousContext![index] != " " {
-                    return false
-                }
-                
-                index = previousContext!.index(before: index)
-                let char = previousContext![index]
-                if self.characterIsWhitespace(char) || self.characterIsPunctuation(char) || char == "," {
-                    return false
-                }
-                
-                return true
-            }()
-            
-            if charactersAreInCorrectState {
-                self.textDocumentProxy.deleteBackward()
-                self.textDocumentProxy.deleteBackward()
-                self.textDocumentProxy.insertText(".")
-                self.textDocumentProxy.insertText(" ")
-            }
-            
-            self.autoPeriodState = .noSpace
-        }
-        else {
-            if key.type == Key.KeyType.space {
-                self.autoPeriodState = .firstSpace
-            }
-        }
     }
     
     func cancelBackspaceTimers() {
@@ -655,8 +589,7 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func updateKeyCaps(_ uppercase: Bool) {
-        let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
-        self.layout?.updateKeyCaps(false, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
+        self.layout?.updateKeyCaps(false, uppercase: uppercase, characterUppercase: true, shiftState: self.shiftState)
     }
     
     @objc func modeChangeTapped(_ sender: KeyboardKey) {
@@ -671,8 +604,7 @@ class KeyboardViewController: UIInputViewController {
         self.shiftWasMultitapped = false
         
         let uppercase = self.shiftState.uppercase()
-        let characterUppercase = (UserDefaults.standard.bool(forKey: kSmallLowercase) ? uppercase : true)
-        self.layout?.layoutKeys(mode, uppercase: uppercase, characterUppercase: characterUppercase, shiftState: self.shiftState)
+        self.layout?.layoutKeys(mode, uppercase: uppercase, characterUppercase: true, shiftState: self.shiftState)
         
         self.setupKeys()
     }
@@ -719,25 +651,13 @@ class KeyboardViewController: UIInputViewController {
     }
     
     func updateCapsIfNeeded() {
-        if self.shouldAutoCapitalize() {
-            switch self.shiftState {
-            case .disabled:
-                self.shiftState = .enabled
-            case .enabled:
-                self.shiftState = .enabled
-            case .locked:
-                self.shiftState = .locked
-            }
-        }
-        else {
-            switch self.shiftState {
-            case .disabled:
-                self.shiftState = .disabled
-            case .enabled:
-                self.shiftState = .disabled
-            case .locked:
-                self.shiftState = .locked
-            }
+        switch self.shiftState {
+        case .disabled:
+            self.shiftState = .disabled
+        case .enabled:
+            self.shiftState = .disabled
+        case .locked:
+            self.shiftState = .locked
         }
     }
     
@@ -763,69 +683,6 @@ class KeyboardViewController: UIInputViewController {
             }
         }
         return true
-    }
-    
-    func shouldAutoCapitalize() -> Bool {
-        if !UserDefaults.standard.bool(forKey: kAutoCapitalization) {
-            return false
-        }
-        
-        let traits = self.textDocumentProxy
-        if let autocapitalization = traits.autocapitalizationType {
-            let documentProxy = self.textDocumentProxy
-            //var beforeContext = documentProxy.documentContextBeforeInput
-            
-            switch autocapitalization {
-            case .none:
-                return false
-            case .words:
-                if let beforeContext = documentProxy.documentContextBeforeInput {
-                    let previousCharacter = beforeContext[beforeContext.index(before: beforeContext.endIndex)]
-                    return self.characterIsWhitespace(previousCharacter)
-                }
-                else {
-                    return true
-                }
-            
-            case .sentences:
-                if let beforeContext = documentProxy.documentContextBeforeInput {
-                    let offset = min(3, beforeContext.count)
-                    var index = beforeContext.endIndex
-                    
-                    for i in 0 ..< offset {
-                        index = beforeContext.index(before: index)
-                        let char = beforeContext[index]
-                        
-                        if characterIsPunctuation(char) {
-                            if i == 0 {
-                                return false //not enough spaces after punctuation
-                            }
-                            else {
-                                return true //punctuation with at least one space after it
-                            }
-                        }
-                        else {
-                            if !characterIsWhitespace(char) {
-                                return false //hit a foreign character before getting to 3 spaces
-                            }
-                            else if characterIsNewline(char) {
-                                return true //hit start of line
-                            }
-                        }
-                    }
-                    
-                    return true //either got 3 spaces or hit start of line
-                }
-                else {
-                    return true
-                }
-            case .allCharacters:
-                return true
-            }
-        }
-        else {
-            return false
-        }
     }
     
     // this only works if full access is enabled
