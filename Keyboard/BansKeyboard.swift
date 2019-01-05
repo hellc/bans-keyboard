@@ -4,14 +4,11 @@ import UIKit
 
 //-------------------------------------------//
 
-let kCatTypeEnabled = "kCatTypeEnabled"
-
 class BansKeyboard: KeyboardViewController {
     
     var bansBanner: BansBanner!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        UserDefaults.standard.register(defaults: [kCatTypeEnabled: true])
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -74,14 +71,18 @@ class BansKeyboard: KeyboardViewController {
         let symbolTemp2 = symbolTemp.split(separator: ":", maxSplits: 2, omittingEmptySubsequences: true)
         let symbol = String(symbolTemp2.last!)
         
-        let addressTemp = String(temp.last!)
-        let addressTemp2 = addressTemp.split(separator: "=", maxSplits: 2, omittingEmptySubsequences: true)
-        var address = String(addressTemp2.first!) == "recipient_address" ? String(addressTemp2.last!) : nil
-        if address!.hasSuffix(";") {
-            address = String(address!.dropLast())
+        var address = ""
+        for slice in temp {
+            if slice.contains("recipient_address=") {
+                let addressTemp = slice.split(separator: "=", maxSplits: 2, omittingEmptySubsequences: true)
+                address = (String(addressTemp.first!) == "recipient_address" ? String(addressTemp.last!) : nil)!
+                if address.hasSuffix(";") {
+                    address = String(address.dropLast())
+                }
+            }
         }
         
-        if (symbol.count > 0 && address!.count > 0) {
+        if (symbol.count > 0 && address.count > 0) {
             var bansDataItem: BansData = BansData()
             bansDataItem.oa1 = symbol
             bansDataItem.recipientAddress = address
